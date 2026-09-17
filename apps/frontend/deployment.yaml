@@ -7,7 +7,9 @@ metadata:
     app.kubernetes.io/name: cicd-learning-journal
     app.kubernetes.io/part-of: cicd-learning-lab
 spec:
-  replicas: 1
+  # Git is the desired state: Argo CD will create a second Pod after this
+  # commit reaches main, without anyone running kubectl apply.
+  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: cicd-learning-journal
