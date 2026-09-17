@@ -7,7 +7,7 @@ reconcile the cluster to match it.
 ## Frontend
 
 The frontend is declared in [apps/frontend](/apps/frontend). It runs the
-immutable image `ghcr.io/giabao1292/cicd-demo-api:d9bc5ac`, runs two replicas,
+immutable image `ghcr.io/giabao1292/cicd-demo-api:81505f5`, runs two replicas,
 and is exposed on
 Docker Desktop Kubernetes at `http://localhost:30080`.
 
