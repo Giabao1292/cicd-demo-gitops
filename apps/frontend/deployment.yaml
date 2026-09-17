@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-learning-journal
+  namespace: cicd-lab
+  labels:
+    app.kubernetes.io/name: cicd-learning-journal
+    app.kubernetes.io/part-of: cicd-learning-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cicd-learning-journal
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cicd-learning-journal
+    spec:
+      containers:
+        - name: frontend
+          # Immutable commit tag: the exact image that passed the delivery pipeline.
+          image: ghcr.io/giabao1292/cicd-demo-api:a5fa417
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
