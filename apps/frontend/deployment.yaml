@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: cicd-learning-journal
   namespace: cicd-lab
+  annotations:
+    # A harmless GitOps change used to verify Argo's Slack notification path.
+    lab.cicd.dev/notifications: enabled
   labels:
     app.kubernetes.io/name: cicd-learning-journal
     app.kubernetes.io/part-of: cicd-learning-lab
