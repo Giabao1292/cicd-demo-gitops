@@ -17,4 +17,12 @@ kubectl apply -k apps/frontend
 ```
 
 The next stage replaces that manual command with Argo CD sync.
+
+## Argo CD
+
+[argocd/frontend-application.yaml](/argocd/frontend-application.yaml) is the
+bootstrap manifest. It instructs Argo CD to watch `apps/frontend` on `main`
+and automatically sync it into the local `cicd-lab` namespace. Apply this
+file once after installing Argo CD; every later app change is reconciled from
+Git automatically.
 cicd-demo-gitops

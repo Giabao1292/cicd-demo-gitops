@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cicd-learning-journal
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: cicd-learning-lab
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Giabao1292/cicd-demo-gitops.git
+    targetRevision: main
+    path: apps/frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cicd-lab
+  syncPolicy:
+    automated:
+      # If Git removes a managed resource, remove it from the cluster too.
+      prune: true
+      # If someone changes a managed resource directly in Kubernetes,
+      # restore the version declared in Git.
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
