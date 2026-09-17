@@ -7,7 +7,7 @@ reconcile the cluster to match it.
 ## Frontend
 
 The frontend is declared in [apps/frontend](/apps/frontend). It runs the
-immutable image `ghcr.io/giabao1292/cicd-demo-api:a5fa417` and is exposed on
+immutable image `ghcr.io/giabao1292/cicd-demo-api:d9bc5ac` and is exposed on
 Docker Desktop Kubernetes at `http://localhost:30080`.
 
 For this first learning deployment, apply it manually:

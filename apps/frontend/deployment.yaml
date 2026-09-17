@@ -19,7 +19,7 @@ spec:
       containers:
         - name: frontend
           # Immutable commit tag: the exact image that passed the delivery pipeline.
-          image: ghcr.io/giabao1292/cicd-demo-api:a5fa417
+          image: ghcr.io/giabao1292/cicd-demo-api:d9bc5ac
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
