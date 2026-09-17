@@ -26,4 +26,8 @@ bootstrap manifest. It instructs Argo CD to watch `apps/frontend` on `main`
 and automatically sync it into the local `cicd-lab` namespace. Apply this
 file once after installing Argo CD; every later app change is reconciled from
 Git automatically.
+
+`argocd/notifications-config.yaml` configures Argo CD to notify Slack after a
+successful sync or a failed sync. It references a Kubernetes Secret rather
+than storing the Slack webhook URL in Git.
 cicd-demo-gitops

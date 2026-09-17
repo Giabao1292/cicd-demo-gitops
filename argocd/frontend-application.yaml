@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: cicd-learning-journal
   namespace: argocd
+  annotations:
+    # Webhook recipients use the configured webhook service name and no value.
+    notifications.argoproj.io/subscribe.on-sync-succeeded-slack.slack-webhook: ""
+    notifications.argoproj.io/subscribe.on-sync-failed-slack.slack-webhook: ""
   labels:
     app.kubernetes.io/part-of: cicd-learning-lab
 spec:
